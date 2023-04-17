@@ -20,7 +20,7 @@ jobs:
       - name: Read YAML file
         id: read-yaml
         env:
-          YAML_FILE_PATH: '/data.yml'
+          YAML_FILE_PATH: 'data.yml'
         run: |
           echo "::set-output name=data::$(yaml2json $YAML_FILE_PATH)"
       - name: Read value of a specific key
