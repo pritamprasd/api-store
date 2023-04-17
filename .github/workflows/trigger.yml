@@ -17,19 +17,25 @@ jobs:
       - name: Install dependencies
         run: |
           python3 -m pip install --upgrade pip
-          pip install pyyaml
+          pip install pyyaml PyGithub
       - name: Execute Python code
         run: |
           python -c '          
           print("START")
+          ###################
+          from github import Github
+          import os
+          print(f"secret: {os.getenv("secrets.MY_SECRET")}")
+          g = Github(os.getenv("secrets.MY_SECRET"))
           import yaml
           with open("data.yml", "r") as stream:
               print("start")
               try:
                   projects = yaml.safe_load(stream)
                   for p in projects:
-                    print(p["url"])
+                    print(p)
               except yaml.YAMLError as exc:
                   print(exc)
           print("FIN")
+          #####################
           '

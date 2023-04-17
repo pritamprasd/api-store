@@ -1,5 +1,14 @@
 ---
-- url: https://github.dev/pritamprasd/openapi-service-1
+- url: https://github.com/pritamprasd/openapi-service-1
   branch: main
-- url: https://github.dev/pritamprasd/openapi-service-1
+- url: https://github.com/pritamprasd/openapi-service-2
   branch: main
+
+
+
+
+>>> repo = g.get_repo("PyGithub/PyGithub")
+>>> contents = repo.get_contents("README.md")
+>>> print(contents)
+...
+ContentFile(path="README.md")
