@@ -28,7 +28,7 @@ jobs:
               try:
                   projects = yaml.safe_load(stream)
                   for p in projects:
-                    print(a["url"])
+                    print(p["url"])
               except yaml.YAMLError as exc:
                   print(exc)
           print("FIN")
