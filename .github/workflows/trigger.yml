@@ -18,5 +18,15 @@ jobs:
         run: |
           python3 -m pip install --upgrade pip
           pip install pyyaml
-      - name: Run Python script
-        run: python3 app.py
+      - name: Execute Python code
+        run: |
+          python -c '          
+          print("Hello, World!")
+          import yaml
+          with open("data.yml", "r") as stream:
+              print("start")
+              try:
+                  print(yaml.safe_load(stream))
+              except yaml.YAMLError as exc:
+                  print(exc)
+          '
