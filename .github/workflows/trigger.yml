@@ -10,3 +10,21 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
+      - name: Setup Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14'
+      - name: Install yaml-reading-action dependencies
+        run: |
+          npm install -g yamljs
+      - name: Read YAML file
+        id: read-yaml
+        env:
+          YAML_FILE_PATH: '/data.yml'
+        run: |
+          echo "::set-output name=data::$(yaml2json $YAML_FILE_PATH)"
+      - name: Read value of a specific key
+        run: |
+          DATA="${{ steps.read-yaml.outputs.data }}"
+          KEY_VALUE=$(echo "$DATA" | jq -r '.key1')
+          echo "Value of the key 'your_key': $KEY_VALUE"
