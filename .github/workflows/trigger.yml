@@ -21,12 +21,15 @@ jobs:
       - name: Execute Python code
         run: |
           python -c '          
-          print("Hello, World!")
+          print("START")
           import yaml
           with open("data.yml", "r") as stream:
               print("start")
               try:
-                  print(yaml.safe_load(stream))
+                  projects = yaml.safe_load(stream)
+                  for p in projects:
+                    print(a["url"])
               except yaml.YAMLError as exc:
                   print(exc)
+          print("FIN")
           '

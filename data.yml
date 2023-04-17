@@ -1,1 +1,5 @@
-key1: value1
+---
+- url: https://github.dev/pritamprasd/openapi-service-1
+  branch: main
+- url: https://github.dev/pritamprasd/openapi-service-1
+  branch: main
