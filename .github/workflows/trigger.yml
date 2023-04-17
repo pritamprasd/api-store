@@ -25,7 +25,8 @@ jobs:
           ###################
           from github import Github
           import os
-          print(f"secret: {os.getenv("secrets.MY_SECRET")}")
+          vvv = os.getenv("secrets.MY_SECRET", default="N/A")
+          print(f"secret: {vvv}")
           g = Github(os.getenv("secrets.MY_SECRET"))
           import yaml
           with open("data.yml", "r") as stream:
